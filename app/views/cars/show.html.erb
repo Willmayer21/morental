@@ -1,0 +1,19 @@
+<div class="container">
+  <ul class="row">
+    <h1><p><%= image_tag @car.poster_url, :width => "50%", :length => "50%" %><br><%= @car.model %> <%= @car.description %><br>Price : Rs <%= @car.price_per_day %> year : <%= @car.year %></p></h1>
+  </ul>
+  <ul class="list-group">
+    <% @car.rentals.each do |rental| %>
+      <li class="list-group-item"><%=%>user_id : <%= rental.start_date %> car_id : <%= rental.end_date %></li>
+    <% end %>
+  </ul>
+  <div class="row">
+    <%= simple_form_for [@car, @rental] do |f| %>
+      <%= f.input :start_date%>
+      <%= f.input :end_date%>
+      <%= f.submit 'submit' %>
+    <% end %>
+  </div>
+    <%= link_to "Back", root_path,  class: "btn btn-primary" %>
+    <%# <%= link_to "Add a review", new_car_review_path(@car),  class: "btn btn-primary" %>
+</div>
