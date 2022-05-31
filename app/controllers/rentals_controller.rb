@@ -1,9 +1,4 @@
 class RentalsController < ApplicationController
-  def new
-    @rental = Rental.new
-    @car = Car.find(params[:car_id])
-  end
-
   def create
     @rental = Rental.new(rental_params)
 
