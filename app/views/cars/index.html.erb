@@ -4,10 +4,19 @@
   <div class="container">
     <div class="container">
     <ul>
+      <div class="cards">
       <% @cars.each do |car| %>
-        <li><%= image_tag car.poster_url, :width => "50%", :length => "50%" %><br><%= car.model %> <%= car.description %><br>Price : Rs <%= car.price_per_day %> year : <%= car.year %></li>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.poster_url %>)">
+
+          <br><%= car.model %> <%= car.description %>
+          <br>Price : Rs <%= car.price_per_day %> year : <%= car.year %>
           <%= link_to "Book a vehicle", new_car_rental_path(car), class: "btn btn-primary"%>
+        </div>
       <% end %>
+     </div>
+        <%# <li><%= image_tag car.poster_url, :width => "50%", :length => "50%" %>
+        <%# <br><%= car.model <%= car.description %>
+        <%# <br>Price : Rs <%= car.price_per_day year : <%= car.year</li> %>
     </ul>
     </div>
     <a class="btn btn-flat" href="#">Apply now</a>
