@@ -5,6 +5,9 @@ class RentalsController < ApplicationController
     @car = Car.find(params[:car_id])
     @rental.car = @car
     @rental.user = current_user
+    @days = (@rental.end_date.to_date - @rental.start_date.to_date).to_i + 1
+    @total_price = (@car.price_per_day * @days)
+    @rental.total_price = @total_price
     if @rental.save
       redirect_to car_path(@car)
     else

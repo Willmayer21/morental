@@ -1,13 +1,13 @@
-<div class="banner" style="background-color: #33475b;">
+<div class="" style="background-color: #33475b;">
   <div class="container">
-    <ul class="row">
+    <div class="row">
       <h1><p><%= image_tag @car.poster_url, :width => "50%", :length => "50%" %><br><%= @car.model %> <%= @car.description %><br>Price : Rs <%= @car.price_per_day %> year : <%= @car.year %></p></h1>
-    </ul>
-    <ul class="list-group">
+    </div>
+    <div class="list-group">
       <% @car.rentals.each do |rental| %>
-        <li class="list-group-item"><%=%>From : <%= rental.start_date %> To : <%= rental.end_date %></li>
+        <p class="list-group-item"><%=%>Your car is booked from : <%= rental.start_date %> To : <%= rental.end_date %> Amount to be paid : <%= rental.total_price %></p>
       <% end %>
-    </ul>
+    </div>
     <div class="row">
       <%= simple_form_for [@car, @rental] do |f| %>
         <%= f.input :start_date, as: :date%>
