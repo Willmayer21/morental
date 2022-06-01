@@ -14,10 +14,10 @@
       <%= simple_form_for [@car, @rental] do |f| %>
         <%= f.input :start_date, as: :date%>
         <%= f.input :end_date, as: :date%>
-        <%= f.submit 'submit' %>
+        <%= f.submit 'submit', class: "btn btn-gradient"%>
       <% end %>
     </div>
-    <%= link_to "Back", root_path,  class: "btn btn-primary" %>
+    <%= link_to "Back", root_path,  class: "btn btn-flat" %>
     <%# <%= link_to "Add a review", new_car_review_path(@car),  class: "btn btn-primary" %>
   </div>
 </div>
