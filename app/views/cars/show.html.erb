@@ -5,7 +5,9 @@
     </div>
     <div class="list-group">
       <% @car.rentals.each do |rental| %>
-        <p class="list-group-item"><%=%>Your car is booked from : <%= rental.start_date %> To : <%= rental.end_date %> Amount to be paid : <%= rental.total_price %></p>
+        <p class="list-group-item"> User id : <%= rental.user_id %>
+        <br> Car booked from : <%= rental.start_date %> To : <%= rental.end_date %>
+        <br> Amount to be paid : Rs <%= rental.total_price %></p>
       <% end %>
     </div>
     <div class="row">
