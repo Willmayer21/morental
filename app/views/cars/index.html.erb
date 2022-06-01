@@ -10,7 +10,7 @@
 
           <br><%= car.model %> <%= car.description %>
           <br>Price : Rs <%= car.price_per_day %> year : <%= car.year %>
-          <%= link_to "Book a vehicle", new_car_rental_path(car), class: "btn btn-primary"%>
+          <%= link_to "Book a vehicle", car_path(car), class: "btn btn-primary"%>
         </div>
       <% end %>
      </div>
@@ -20,4 +20,6 @@
     </ul>
     </div>
   </div>
+            <%= link_to "Back", root_path%>
+</div>
 </div>
