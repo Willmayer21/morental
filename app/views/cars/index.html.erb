@@ -1,25 +1,23 @@
 <h1>cars index</h1>
 
-<div class="banner" style="background-color: #33475b;">
+<div class="" style="background-color: #33475b;">
   <div class="container">
-    <div class="container">
-    <ul>
       <div class="cards">
       <% @cars.each do |car| %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.poster_url %>)">
 
           <br><%= car.model %> <%= car.description %>
-          <br>Price : Rs <%= car.price_per_day %> year : <%= car.year %>
+          <br>Price per day : Rs <%= car.price_per_day %> year : <%= car.year %>
           <%= link_to "Book a vehicle", car_path(car), class: "btn btn-primary"%>
         </div>
       <% end %>
-     </div>
+  </div>
+    <%= link_to "Back", root_path%>
+</div>
+
+     <%# </div>
         <%# <li><%= image_tag car.poster_url, :width => "50%", :length => "50%" %>
         <%# <br><%= car.model <%= car.description %>
         <%# <br>Price : Rs <%= car.price_per_day year : <%= car.year</li> %>
-    </ul>
-    </div>
-  </div>
-            <%= link_to "Back", root_path%>
-</div>
-</div>
+    <%# </ul>
+    </div> %>
