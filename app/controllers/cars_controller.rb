@@ -1,10 +1,13 @@
 class CarsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
-    @cars = Cars.all
+    @cars = Car.all
   end
 
   def show
     @car = Car.find(params[:id])
+    @rental = Rental.new
   end
 
   def new
