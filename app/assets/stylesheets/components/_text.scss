@@ -1,0 +1,31 @@
+.avatar-large {
+  width: 500px;
+  border-radius: 50%;
+
+  .avatar-bordered {
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: white 1px solid;
+
+    .avatar-square {
+      width: 40px;
+      border-radius: 0px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      border: white 1px solid;
+    }
+    .banner p {
+      font-size: 20px;
+      color:red;
+      opacity: .7;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+      .con_second {
+        background-color: red;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        margin-top: -10px;
+      }
