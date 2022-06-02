@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'url', to:  'pages#mycars'
   resources :cars do
     resources :rentals, only: %i[new create]
   end

@@ -2,8 +2,7 @@
   <h3>Make a new booking</h3>
     <div class="row">
       <%= simple_form_for @car do |f| %>
-      <%= f.input :start_date%>
-      <%= f.input :end_date%>
+      <%= f.input :model %>
       <%= f.submit class: 'btn btn-gradient' %>
       <% end %>
        <%= link_to "Back", root_path, class: 'btn btn-flat'%>
