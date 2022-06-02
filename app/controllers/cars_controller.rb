@@ -13,6 +13,14 @@ class CarsController < ApplicationController
     else
       @cars = Car.all
     end
+    @markers = @cars.geocoded.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { car: car }),
+        image_url: helpers.asset_url("car.png")
+      }
+    end
   end
 
   def show
@@ -28,14 +36,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
   end
 
-  def edit
-    @car = Car.find(params[:id])
-  end
-
-  def update
-    @car = Car.find(params[:id])
-  end
-
-  def destroy
-  end
+  # to be able to cancel the booking
+  # def destroy
+  # end
 end

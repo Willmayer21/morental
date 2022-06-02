@@ -2,11 +2,17 @@
   justify-content: space-between;
   background: white;
 }
-
-.navbar-lewagon .navbar-collapse {
+.navbar-lewagon h1 {
+ color: BLACK;
+ font-weight: bold;
+ font-size : 50pt;
+}.navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
-
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 200px;
+}
+.white-text {
+  color: black;
+  font-size : 25pt;
 }
