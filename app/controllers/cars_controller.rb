@@ -2,7 +2,17 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @cars = Car.all
+    if params[:query].present?
+      sql_query = " \
+      model ILIKE :query \
+      OR description ILIKE :query \
+      OR price_per_day::text ILIKE :query \
+      OR year::text ILIKE :query \
+      "
+      @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @cars = Car.all
+    end
     @markers = @cars.geocoded.map do |car|
       {
         lat: car.latitude,

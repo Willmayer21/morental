@@ -4,7 +4,27 @@
       <%= image_tag "https://st2.depositphotos.com/1216711/9746/v/450/depositphotos_97468332-stock-illustration-abstract-car-icon.jpg" %>
     <% end %>
 
+
+    <%# search bar %>
+    <div class="container search_bar">
+    <div class="sb1">
+      <%= form_tag cars_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Car by typing a Make, a Brand, a Year or a Price"
+       %>
+       </div>
+      <br>
+      <div class="sb2">
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+    <%# end %>
+
     <h1> Don't Dream It ,Drive It with..... MAUCAR LTD</h1>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
