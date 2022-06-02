@@ -15,6 +15,9 @@ class RentalsController < ApplicationController
     end
   end
 
+  # cancel rental
+  # edit rental OPTIONAL
+
   private
 
   def rental_params
