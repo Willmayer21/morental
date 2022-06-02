@@ -1,20 +1,18 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: black;
+  background: white;
 }
 .navbar-lewagon h1 {
- color:white;
+ color: BLACK;
  font-weight: bold;
-}
-.navbar-lewagon .navbar-collapse {
+ font-size : 50pt;
+}.navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-  border: 3px white;
 }
-
 .navbar-lewagon .navbar-brand img {
-  width: 250px;
+  width: 200px;
 }
-
 .white-text {
-  color: white;
+  color: black;
+  font-size : 25pt;
 }
