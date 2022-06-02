@@ -14,23 +14,23 @@
 <%# </div> %>
 <%# end %>
 
-
-<div class="" style="background-color: #33475b;">
-  <div class="container">
-      <div class="cards">
-        <% @cars.each do |car| %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.poster_url %>)">
-            <br><%= car.model %> <%= car.description %>
-            <br>Price per day : Rs <%= car.price_per_day %> year : <%= car.year %>
-            <%= link_to "Book a vehicle", car_path(car), class: "btn btn-gradient"%>
-          </div>
-        <% end %>
+<div class="all-page" style="background-color: #33475b;">
+  <h1 class="text-center text-light sticky">Our offers</h1>
+  <div class="sides2 container" >
+    <div class="cards">
+      <% @cars.each do |car| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.poster_url %>)">
+          <br><%= car.model %> <%= car.description %>
+          <br>Price per day : Rs <%= car.price_per_day %> year : <%= car.year %>
+          <%= link_to "Book a vehicle", car_path(car), class: "btn btn-gradient"%>
+        </div>
+      <% end %>
     </div>
-    <%= link_to "Back", root_path, class: "btn btn-flat"%>
+    <div class="map sticky" style="width: 100%; height: 650px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-  <div style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
- </div>
+<%= link_to "Back", root_path, class: "btn btn-flat"%>
+</div>
