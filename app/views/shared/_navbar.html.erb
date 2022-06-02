@@ -4,6 +4,24 @@
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
 
+    <%# search bar %>
+    <div class="container search_bar">
+    <div class="sb1">
+      <%= form_tag cars_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Car by typing a Make, a Brand, a Year or a Price"
+       %>
+       </div>
+      <br>
+      <div class="sb2">
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+    <%# end %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
