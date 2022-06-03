@@ -1,39 +1,54 @@
-<%# <h1>cars index</h1> %>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
 
-<%# Search Bar %>
-<%# <div class="container">
-<%= form_tag cars_path, method: :get do %>
-  <%# <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a brand"
-  %>
-  <%# <br>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<%# <% end %>
-<%# </div> %>
-<%# end %>
-<body style="background-color: #33475b;">
-  <div class="all-page" >
-  <h1 class="text-center text-light sticky">Our offers</h1>
-  <div class="sides2 container" >
-    <div class="cards">
-      <% @cars.each do |car| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.poster_url %>)">
-          <br><%= car.model %> <%= car.description %>
-          <br>Price per day : Rs <%= car.price_per_day %> year : <%= car.year %>
-          <%= link_to "Book a vehicle", car_path(car), class: "btn btn-gradient"%>
+<div class="sides2" >
+  <div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style='width: 100%; height: 650px;'>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <% @cars[1..].each_with_index do |car, index| %>
+          <li data-target="#myCarousel" data-slide-to="<%= index %>"></li>
+        <% end %>
+      </ol>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @cars.first.poster_url %>)">
+            <br><%= @cars.first.model %> <%= @cars.first.description %>
+            <br>Price per day : Rs <%= @cars.first.price_per_day %> year : <%= @cars.first.year %>
+            <%= link_to "Book a vehicle", car_path(@cars.first), class: "btn btn-gradient"%>
+          </div>
         </div>
-      <% end %>
-    </div>
-    <div class="map sticky" style="width: 100%; height: 650px;"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <% @cars[1..].each_with_index do |car, index| %>
+          <div class="item">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.poster_url %>)">
+              <br><%= car.model %> <%= car.description %>
+              <br>Price per day : Rs <%= car.price_per_day %> year : <%= car.year %>
+              <%= link_to "Book a vehicle", car_path(car), class: "btn btn-gradient"%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
   </div>
-    <div class="d-flex justify-content-center mt-5 mb-5">
-      <%= link_to "Back", root_path, class: "btn btn-flat"%>
-    </div>
+
+  <div class="map sticky" style="width: 100%; height: 650px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</body>
+
+</div>
