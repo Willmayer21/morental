@@ -31,6 +31,10 @@
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
+
+    <%= link_to "Back", root_path, class: "btn btn-flat"%>
+
   </div>
     <div class="d-flex justify-content-center mt-5 mb-5">
       <%= link_to "Back", root_path, class: "btn btn-flat"%>
