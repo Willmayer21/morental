@@ -24,8 +24,18 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car = Car.find(params[:id])
+    @car = [Car.find(params[:id])]
     @rental = Rental.new
+    @user_rentals = Rental.where(car_id: params[:id], user_id: current_user.id)
+
+    @markers = @car.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { car: car }),
+        image_url: helpers.asset_url("car.png")
+      }
+    end
   end
 
   def new
